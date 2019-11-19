@@ -9,12 +9,19 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.softwarica.softwaricaapp.Model.Student;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
+//    public static ArrayList<String> students;
     BottomNavigationView bottomNavigation;
     FrameLayout main_layout;
+    public static List<Student> students=new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigation=findViewById(R.id.bottom_navigation);
         main_layout=findViewById(R.id.main_layout);
+        students.add(new Student("Aryan",19,"male","balaju"));
+        students.add(new Student("Rupesh",21,"male","balaju"));
+        students.add(new Student("Sita",19,"female","balaju"));
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

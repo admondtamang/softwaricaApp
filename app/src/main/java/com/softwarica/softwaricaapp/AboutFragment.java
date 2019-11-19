@@ -8,12 +8,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AboutFragment extends Fragment {
+    WebView web;
 
 
     public AboutFragment() {
@@ -25,7 +28,12 @@ public class AboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about, container, false);
+        View v =inflater.inflate(R.layout.fragment_about, container, false);
+
+        web=v.findViewById(R.id.website);
+        web.loadUrl("https://softwarica.edu.np/");
+        web.setWebViewClient(new WebViewClient());
+        return v;
     }
 
 }
