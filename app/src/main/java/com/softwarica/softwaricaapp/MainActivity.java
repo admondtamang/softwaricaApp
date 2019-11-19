@@ -9,6 +9,9 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.softwarica.softwaricaapp.Fragment.AboutFragment;
+import com.softwarica.softwaricaapp.Fragment.HomeFragment;
+import com.softwarica.softwaricaapp.Fragment.RegisterFragment;
 import com.softwarica.softwaricaapp.Model.Student;
 
 import java.util.ArrayList;
@@ -29,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigation=findViewById(R.id.bottom_navigation);
         main_layout=findViewById(R.id.main_layout);
-        students.add(new Student("Aryan",19,"male","balaju"));
-        students.add(new Student("Rupesh",21,"male","balaju"));
-        students.add(new Student("Sita",19,"female","balaju"));
+        students.add(new Student("Aryan",19,"Male","balaju",1));
+        students.add(new Student("Rupesh",21,"Male","balaju",1));
+        students.add(new Student("Sita",19,"Female","balaju",2));
+        students.add(new Student("riteshita",19,"Other","india",3));
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

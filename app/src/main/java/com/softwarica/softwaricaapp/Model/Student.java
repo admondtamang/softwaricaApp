@@ -5,12 +5,22 @@ public class Student {
     private int age;
     private String gender;
     private String address;
+    private int image;
 
-    public Student(String name, int age, String gender, String address) {
+    public Student(String name, int age, String gender, String address, int image) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.address = address;
+        this.image=image;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 
     public String getName() {

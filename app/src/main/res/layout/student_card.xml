@@ -8,6 +8,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:id="@+id/cardViewStudent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -41,7 +42,7 @@
                 android:id="@+id/txtGender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="220dp"
+                android:layout_marginStart="228dp"
                 android:layout_marginTop="80dp"
                 android:text="Male"
                 app:layout_constraintStart_toEndOf="@+id/ivImage"
@@ -65,6 +66,17 @@
                 android:text="Balaju"
                 app:layout_constraintStart_toStartOf="@+id/txtAge"
                 app:layout_constraintTop_toBottomOf="@+id/txtAge" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="30dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="#E91E63"
+                android:text="Del"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

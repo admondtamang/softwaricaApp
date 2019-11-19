@@ -1,10 +1,11 @@
-package com.softwarica.softwaricaapp;
+package com.softwarica.softwaricaapp.Fragment;
 
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,12 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.softwarica.softwaricaapp.Model.Student;
+import com.softwarica.softwaricaapp.R;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 
 public class RegisterFragment extends Fragment {
@@ -37,6 +42,7 @@ public class RegisterFragment extends Fragment {
         final View view= inflater.inflate(R.layout.fragment_register, container, false);
         name=view.findViewById(R.id.etName);
         age=view.findViewById(R.id.etAge);
+        rdoGender = view.findViewById(R.id.grpGender);
         address=view.findViewById(R.id.etAddress);
         btnSubmit=view.findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -44,8 +50,15 @@ public class RegisterFragment extends Fragment {
             public void onClick(View v) {
                 int selectGender=rdoGender.getCheckedRadioButtonId();
                 btnGender=view.findViewById(selectGender);
-                MainActivity.students.add(new Student(name.getText().toString(),Integer.parseInt(age.getText().toString()),btnGender.getText().toString(),address.getText().toString()));
-                Toast.makeText(getContext(),"Student created",Toast.LENGTH_LONG);
+//                MainActivity.students.add(new Student(name.getText().toString(),Integer.parseInt(age.getText().toString()),btnGender.getText().toString(),address.getText().toString()));
+                Toast toast=Toast.makeText(getContext(),"Student created",Toast.LENGTH_LONG);
+                toast.show();
+//                List<Student> list=MainActivity.students;
+//                for(int i=0; i<list.size(); i++) {
+//                    Student currentx = list.get(i);
+//                    Toast.makeText(getContext(), (CharSequence) currentx,Toast.LENGTH_LONG);
+//                    // Do something with the value
+//                }
             }
         });
 
