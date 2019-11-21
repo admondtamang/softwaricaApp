@@ -37,7 +37,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         Student student=studentList.get(position);
         holder.name.setText(student.getName());
         holder.address.setText(student.getAddress());
-        holder.age.setText(student.getAge());
+        holder.age.setText(student.getAge() + "");
         holder.gender.setText(student.getGender());
         holder.image.setImageResource(student.getImage());
     }
@@ -61,6 +61,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
             address=itemView.findViewById(R.id.txtAddress);
             gender=itemView.findViewById(R.id.txtGender);
             delete=itemView.findViewById(R.id.btnDelete);
+
             this.context=context;
             this.list=studentList;
 
@@ -68,7 +69,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
                 @Override
                 public void onClick(View v) {
                     Student std=list.get(getAdapterPosition()); //Array position
-                    Toast.makeText(context,std.getName(),Toast.LENGTH_SHORT);
+                    Toast.makeText(context,std.getName(),Toast.LENGTH_SHORT).show();
                 }
             });
 

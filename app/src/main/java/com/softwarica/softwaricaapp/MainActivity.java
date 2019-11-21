@@ -30,12 +30,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Start homefragment at startup
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,
+                new HomeFragment()).commit();
+
         bottomNavigation=findViewById(R.id.bottom_navigation);
         main_layout=findViewById(R.id.main_layout);
-        students.add(new Student("Aryan",19,"Male","balaju",1));
-        students.add(new Student("Rupesh",21,"Male","balaju",1));
-        students.add(new Student("Sita",19,"Female","balaju",2));
-        students.add(new Student("riteshita",19,"Other","india",3));
+        students.add(new Student("Aryan",19,"Male","balaju",R.drawable.male));
+        students.add(new Student("Rupesh",21,"Male","balaju",R.drawable.male));
+        students.add(new Student("Sita",19,"Female","balaju",R.drawable.female));
+        students.add(new Student("riteshita",59,"Other","india",R.drawable.other));
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.util.MalformedJsonException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.softwarica.softwaricaapp.MainActivity;
 import com.softwarica.softwaricaapp.Model.Student;
 import com.softwarica.softwaricaapp.R;
 
@@ -27,6 +29,7 @@ import static android.content.ContentValues.TAG;
 public class RegisterFragment extends Fragment {
 
     EditText name,age,address;
+    int image;
     RadioGroup rdoGender;
     Button btnSubmit;
     RadioButton btnGender;
@@ -45,20 +48,52 @@ public class RegisterFragment extends Fragment {
         rdoGender = view.findViewById(R.id.grpGender);
         address=view.findViewById(R.id.etAddress);
         btnSubmit=view.findViewById(R.id.btnSubmit);
+
+
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // Validation
+                if (name.equals("")) {
+                    name.setError( "You did not enter a username");
+                    return;
+                }
+                if(age.equals("")){
+                    age.setError("Enter age");
+                    return;
+
+                }
+                if(address.equals("")){
+                    address.setError("Enter address");
+                    return;
+
+                }
+
                 int selectGender=rdoGender.getCheckedRadioButtonId();
                 btnGender=view.findViewById(selectGender);
-//                MainActivity.students.add(new Student(name.getText().toString(),Integer.parseInt(age.getText().toString()),btnGender.getText().toString(),address.getText().toString()));
+
+//        For image of gender
+                switch (btnGender.getText().toString()){
+                    case "Male":
+                        image=R.drawable.male;
+                        break;
+                    case "Female":
+                        image=R.drawable.female;
+                        break;
+                    case "Other":
+                        image=R.drawable.other;
+                        break;
+                        default:
+                            image=R.drawable.male;
+                            break;
+                }
+
+                MainActivity.students.add(new Student(name.getText().toString(),Integer.parseInt(age.getText().toString()),btnGender.getText().toString(),address.getText().toString(),image));
                 Toast toast=Toast.makeText(getContext(),"Student created",Toast.LENGTH_LONG);
                 toast.show();
-//                List<Student> list=MainActivity.students;
-//                for(int i=0; i<list.size(); i++) {
-//                    Student currentx = list.get(i);
-//                    Toast.makeText(getContext(), (CharSequence) currentx,Toast.LENGTH_LONG);
-//                    // Do something with the value
-//                }
+
             }
         });
 

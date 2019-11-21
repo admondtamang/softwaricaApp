@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,8 +36,10 @@ public class LoginActivity extends AppCompatActivity {
     public void validate(String name,String password){
 
         if(name.equals("") || password.equals("")){
+            Toast.makeText(LoginActivity.this,"Enter user name and password",Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(name.equals("admin") && password.equals("admin")){
             Intent intent=new Intent(LoginActivity.this,MainActivity.class);
             startActivity(intent);
